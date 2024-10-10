@@ -45,6 +45,20 @@ void printAllDuplicates(int arr[], int size) {
     }
   }
 }
+void reverseVector(vector<int> &vec){
+    int start = 0;
+    int end = vec.size()-1;
+  for(int i = 0; i< vec.size();i++)
+    {
+      swap(vec[start], vec[end]);
+      start++;
+      end--;
+      if(start > end)
+      {
+        return;
+      }
+    }
+}
 int main() {
   int arr[] = {1, 2, 3, 1, 3, 1};
   printAllDuplicates(arr, 6);
