@@ -1,0 +1,51 @@
+#include <iostream>
+#include <limits.h>
+using namespace std;
+
+void swapSmallestNumWithBiggestNum(int arr[], int size) {
+  int smallest = INT_MAX;
+  int biggest = INT_MIN;
+  int smallindex;
+  int bigindex;
+  for (int i = 0; i < size; i++) {
+    if (arr[i] < smallest) {
+      smallest = arr[i];
+      smallindex = i;
+    }
+    if (arr[i] > biggest) {
+      biggest = arr[i];
+      bigindex = i;
+    }
+  }
+  swap(arr[smallindex], arr[bigindex]);
+}
+void printAllUniqueNumbers(int arr[], int size) {
+  for (int i = 0; i < size; i++) {
+    int num = arr[i];
+    bool unique = false;
+    for (int j = i + 1; j < size; j++) {
+      if (arr[j] == num) {
+        break;
+      }
+      unique = true;
+    }
+    if (unique) {
+      cout << num;
+    }
+  }
+}
+void printAllDuplicates(int arr[], int size) {
+  for (int i = 0; i < size; i++) {
+    int num = arr[i];
+    for (int j = i + 1; j < size; j++) {
+      if (arr[j] == num) {
+        cout << arr[i];
+        break;
+      }
+    }
+  }
+}
+int main() {
+  int arr[] = {1, 2, 3, 1, 3, 1};
+  printAllDuplicates(arr, 6);
+}
